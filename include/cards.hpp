@@ -27,7 +27,8 @@ public:
   Cards(CardInformation Info);
   void LoadFileAndName();
   void LoadMetaData();
-    CardInformation ParseFileName(std::string);
+  CardInformation ParseFileName(std::string);
+    void SetTexture(std::string texturefilepath);
 
 private:
   std::string filepath = "../cards/png";

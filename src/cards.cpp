@@ -12,7 +12,9 @@ void Cards::LoadFileAndName() {
     std::string filepath = entry.path().filename();
     size_t lastindex = filepath.find_last_of('.');
 	 std::string rawname = filepath.substr(0, lastindex);
-    ParseFileName(rawname);
+         ParseFileName(rawname);
+	 SetTexture(entry.path().string());
+	 break;
     // Modify the string that i get from the file name,
     //
     // read that string and then i will add metadata for card as
@@ -30,7 +32,7 @@ CardInformation Cards::ParseFileName(std::string cardfile) {
   std::string delimiter = "_";
   std::vector<std::string> tokens;
   std::string token;
-  CardInformation null_info;
+  CardInformation card_info;
   // pos takes the string from the file and tries to find the delimiter in it.
 
   while ((pos = cardfile.find(delimiter)) != std::string::npos) {
@@ -38,20 +40,23 @@ CardInformation Cards::ParseFileName(std::string cardfile) {
     tokens.push_back(token);
     cardfile.erase(0, pos + delimiter.length());
   }
+
   tokens.push_back(cardfile);
+
   for (auto i : tokens) {
-  std::cout << i << std::endl;
+       std::cout << i ;
   }
+
   // std::cout << tokens.at(1) << std::endl;
 
   
 
-  null_info.is_faceup = false;
+  card_info.is_faceup = false;
   // if (token.at(2) == "")
-  null_info.position = {0, 0};
-  null_info.rank = 0;
+  card_info.position = {0, 0};
+  card_info.rank = 0;
 
-  return null_info;
+  return card_info;
 
   // 9_of_clubs.png as
   // 9
@@ -64,6 +69,13 @@ CardInformation Cards::ParseFileName(std::string cardfile) {
 
   // I will be back in a some time
 }
+
+
+void Cards::SetTexture(std::string texture) {
+     
+     
+     
+  }
 
 int main() {
   Cards card;
