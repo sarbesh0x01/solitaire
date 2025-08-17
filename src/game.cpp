@@ -1,23 +1,24 @@
 #include "game.hpp"
 
-Game::Game() : mousecheck() {
-    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
-    InitWindow(800, 800, "SOLITAIRE");
-    mousecheck.GetCardFile();
-    mousecheck.LoadAllTexture();
+int windowWidth = 1280;
+int windowHeight = 700;
+
+GameSolitaire::GameSolitaire() {
+    InitGame();
 }
 
-Game::~Game() {}
-
-void Game::Run() {
-    while (!WindowShouldClose()) {
-      Draw();
-    }
+void GameSolitaire::InitGame() {
+  InitWindow(windowWidth, windowHeight, "Solitaire");
 }
 
-void Game::Draw() {
+void GameSolitaire::RunGame() {
+  while (!WindowShouldClose()) {
+    DrawGame();
+  }
+}
+
+void GameSolitaire::DrawGame() {
   BeginDrawing();
   ClearBackground(WHITE);
-  mousecheck.DrawCard();
   EndDrawing();
 }

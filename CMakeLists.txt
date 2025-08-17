@@ -5,7 +5,9 @@ project(solitaire CXX)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add raylib subdirectory (assuming raylib is cloned in project root)
@@ -16,9 +18,11 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
 # Create your executable (using .cpp files)
-add_executable(${PROJECT_NAME} src/main.cpp
+add_executable(${PROJECT_NAME} #src/main.cpp
   src/game.cpp
-  src/gametouch.cpp
+	src/cards.cpp
+#  src/solitaire.cpp
+   
 )
 
 # Link raylib to your executable

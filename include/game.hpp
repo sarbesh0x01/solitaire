@@ -1,18 +1,16 @@
 #pragma once
 #include <raylib.h>
-// #include "solitaire.hpp"
-#include "gametouch.hpp"
+#include "cards.hpp"
 
-class Game {
+class GameSolitaire {
 public:
-    Game();
-  ~Game();
-  void Run();
-  void Draw();
+  GameSolitaire();
+
+  void InitGame();
+  void RunGame();
+  void UnloadGame();
+  void DrawGame();
+
 
 private:
-  // Solitaire filesyscheck;
-    GameTouch mousecheck;
-    
 };
-

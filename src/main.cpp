@@ -1,8 +1,9 @@
-#include <game.hpp>
+// This file will only have this function so everything can be gone back and
+// view as needed
+#include "game.hpp"
 
 int main() {
-  Game game;
-  game.Run();
-return  0;  
-
+  GameSolitaire game;
+  game.RunGame();
+  return 0;
   }
